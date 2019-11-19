@@ -15,11 +15,14 @@
     <th>Vrsta</th>
     <th>Ime</th>
     <th>Datum Rodjenja</th>
+    <th>Obrisi Zivotinju</th>
   </tr>
   <tr v-for="(animal, index) in animals" :key="index">
+    
     <td>{{ animal.vrsta }}</td>
     <td>{{ animal.ime }}</td>
     <td ><div>{{ animal.datumRodjenja === '' ? 'Nepoznat' :  animal.datumRodjenja  }}</div> </td>
+    <td><button @click="deleteAnimal(index)">Remove</button></td>
     
     
   </tr>
@@ -57,16 +60,31 @@ export default {
       ]
       
  
+    };
+
+    
+
+
+  },
+
+  methods: {
+
+      deleteAnimal: function(index) {
+      this.animals.splice(index, 1);
+}
+
+    
     }
 
 
-  }
 
+  
+  }
   
 
 
 
-}
+
 </script>
 
 
