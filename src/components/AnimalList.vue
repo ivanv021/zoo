@@ -19,7 +19,9 @@
   <tr v-for="(animal, index) in animals" :key="index">
     <td>{{ animal.vrsta }}</td>
     <td>{{ animal.ime }}</td>
-    <td>{{ animal.datumRodjenja }} </td>
+    <td ><div>{{ animal.datumRodjenja === '' ? 'Nepoznat' :  animal.datumRodjenja  }}</div> </td>
+    
+    
   </tr>
  
 </table> 
@@ -69,5 +71,9 @@ export default {
 
 
 <style scoped>
+
+table, th, td {
+  border: 1px solid black;
+}
 
 </style>
