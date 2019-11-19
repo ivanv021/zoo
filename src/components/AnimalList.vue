@@ -16,6 +16,7 @@
     <th>Ime</th>
     <th>Datum Rodjenja</th>
     <th>Obrisi Zivotinju</th>
+    <th>Pomeri gore</th>
   </tr>
   <tr v-for="(animal, index) in animals" :key="index">
     
@@ -23,6 +24,7 @@
     <td>{{ animal.ime }}</td>
     <td ><div>{{ animal.datumRodjenja === '' ? 'Nepoznat' :  animal.datumRodjenja  }}</div> </td>
     <td><button @click="deleteAnimal(index)">Remove</button></td>
+    <td><button @click="moveToTop(animal, index)">Move to Top!</button></td>
     
     
   </tr>
@@ -71,6 +73,12 @@ export default {
 
       deleteAnimal: function(index) {
       this.animals.splice(index, 1);
+},
+
+      moveToTop: function(animal, index) {
+      this.animals.splice(index, 1);
+      this.animals.unshift(animal);
+      
 }
 
     
